@@ -1,5 +1,7 @@
 package soares.danielle.workshopmongo.repositories;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -7,5 +9,5 @@ import soares.danielle.workshopmongo.domain.Post;
 
 @Repository						// argumentos: tipo de entidade que vai monitorar, tipo do id
 public interface PostRepository extends MongoRepository<Post, String>{
-	
+	List<Post> findByTitleContainingIgnoreCase(String text);
 }
