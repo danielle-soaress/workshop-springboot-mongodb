@@ -49,4 +49,12 @@ public class UserResource {
 		// no content é pra quando não há conteúdo para retornar. Código 204;
 	}
 	
+	@PutMapping("/{id}")
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+		User obj = service.fromDTO(objDto);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
+	}
+	
 }
