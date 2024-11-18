@@ -43,7 +43,6 @@ public class UserService {
 		User newObj = findById(obj.getId());
 		updateData(newObj, obj);
 		return rep.save(newObj);
-		
 	}
 
 	private void updateData(User newObj, User obj) {
